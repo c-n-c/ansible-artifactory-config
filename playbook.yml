@@ -5,6 +5,6 @@
 
     roles:
       - capture_config
-
+      - deploy_config
 
 
