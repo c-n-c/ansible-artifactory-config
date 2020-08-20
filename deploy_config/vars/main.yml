@@ -1,0 +1,6 @@
+---
+# vars file for deploy_config
+rest_query_url: http://localhost:8084/artifactory/api/system/configuration
+api_username: admin
+api_password: admin123
+config_fileglob: deploy_config/files/*.yml

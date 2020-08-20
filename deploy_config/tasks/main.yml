@@ -1,14 +1,14 @@
 ---
 # tasks file for deploy_config
-- name: Deploy repo configurations in files directory using REST endpoint
+- name: Deploy artifactory repo configurations from files directory using REST endpoint
   uri:
-    url: http://localhost:8084/artifactory/api/system/configuration
+    url: "{{rest_query_url}}"
     method: PATCH
-    user: admin
-    password: admin123
+    user: "{{api_username}}"
+    password: "{{api_password}}"
     headers:
       Content-Type: "application/yaml"
     force_basic_auth: yes
     return_content: yes
     src: "{{ item }}"
-  with_fileglob: "{{ playbook_dir }}/deploy_config/files/*.yml"
+  with_fileglob: "{{ playbook_dir }}/{{ config_fileglob }}"
