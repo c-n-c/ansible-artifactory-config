@@ -1,0 +1,6 @@
+---
+# vars file for capture_config
+rest_query_url: http://localhost:8082/artifactory/api/system/configuration
+api_username: admin
+api_password: admin123
+config_file_path: capture_config/files/config.xml

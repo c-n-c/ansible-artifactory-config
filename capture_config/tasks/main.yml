@@ -1,18 +1,18 @@
 ---
 # tasks file for capture_config
-- name: Copy using REST endpoint
+- name: Copy configurations from artifactory using REST endpoint
   uri:
-    url: http://localhost:8082/artifactory/api/system/configuration
+    url: "{{rest_query_url}}"
     method: GET
-    user: admin
-    password: admin123
+    user: "{{api_username}}"
+    password: "{{api_password}}"
     headers:
       Accept: "application/xml"
     force_basic_auth: yes
     return_content: yes
-    dest: "{{ playbook_dir }}/capture_config/files/config.xml"
+    dest: "{{ playbook_dir }}/{{ config_file_path }}"
 
-- name: Parse config and create repo yaml
+- name: Parse artifactory config in xml and create repo yaml
   script: ./create_repo_yaml.py {{ playbook_dir }}
   args:
     executable: python
