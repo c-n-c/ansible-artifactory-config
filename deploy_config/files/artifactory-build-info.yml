@@ -1,0 +1,21 @@
+localRepositories:
+  artifactory-build-info:
+    type: buildinfo
+    description: Build Info repository
+    includesPattern: "**/*"
+    dockerApiVersion: V2
+    forceNugetAuthentication: false
+    blackedOut: false
+    handleReleases: true
+    handleSnapshots: true
+    maxUniqueSnapshots: 0
+    maxUniqueTags: 0
+    blockPushingSchema1: true
+    suppressPomConsistencyChecks: true
+    propertySets:
+    archiveBrowsingEnabled: false
+    snapshotVersionBehavior: unique
+    calculateYumMetadata: false
+    yumRootDepth: 0
+    debianTrivialLayout: false
+    enableFileListsIndexing: false

@@ -1,0 +1,47 @@
+remoteRepositories:
+  ivy-remote:
+    type: ivy
+    includesPattern: "**/*"
+    dockerApiVersion: V2
+    forceNugetAuthentication: false
+    blackedOut: false
+    handleReleases: true
+    handleSnapshots: true
+    maxUniqueSnapshots: 0
+    maxUniqueTags: 0
+    blockPushingSchema1: true
+    suppressPomConsistencyChecks: true
+    propertySets:
+    archiveBrowsingEnabled: false
+    url: https://jcenter.bintray.com
+    offline: false
+    hardFail: false
+    storeArtifactsLocally: true
+    fetchJarsEagerly: false
+    fetchSourcesEagerly: false
+    retrievalCachePeriodSecs: 7200
+    assumedOfflinePeriodSecs: 300
+    missedRetrievalCachePeriodSecs: 1800
+    remoteRepoChecksumPolicyType: generate-if-absent
+    unusedArtifactsCleanupPeriodHours: 0
+    shareConfiguration: false
+    synchronizeProperties: false
+    listRemoteFolderItems: true
+    rejectInvalidJars: false
+    p2OriginalUrl: https://jcenter.bintray.com
+    contentSynchronisation:
+      enabled: false
+      statistics:
+        enabled: false
+      properties:
+        enabled: false
+      source:
+        originAbsenceDetection: false
+    blockMismatchingMimeTypes: true
+    mismatchingMimeTypesOverrideList:
+    bypassHeadRequests: false
+    allowAnyHostAuth: false
+    socketTimeoutMillis: 15000
+    enableCookieManagement: false
+    enableTokenAuthentication: false
+    propagateQueryParams: false

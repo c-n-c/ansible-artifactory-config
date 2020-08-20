@@ -1,0 +1,10 @@
+---
+  - name: Artifactory Config Management
+    hosts: 127.0.0.1
+    connection: local
+
+    roles:
+      - capture_config
+
+
+
