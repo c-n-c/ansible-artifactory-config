@@ -12,7 +12,26 @@
     return_content: yes
     dest: "{{ playbook_dir }}/{{ config_file_path }}"
 
+- name: Cleanup all yml files before creating new ones from config.xml
+  file:
+    path: '{{ item }}'
+    state: absent
+  with_fileglob: "{{ playbook_dir }}/deploy_config/files/*.*"
+
 - name: Parse artifactory config in xml and create repo yaml
   script: ./create_repo_yaml.py {{ playbook_dir }}
   args:
     executable: python
+
+- name: Ignore the Repos in given List
+  file:
+    src: '{{ playbook_dir }}/deploy_config/files/{{ item }}.yml'
+    dest: '{{ playbook_dir }}/deploy_config/files/{{ item }}.yml.ignored'
+    state: hard
+  loop : "{{ ignored_files |flatten(levels=1)  }}" # provide this from command line
+
+- name: Remove the ignored repo files in given List
+  file:
+    path: '{{ playbook_dir }}/deploy_config/files/{{ item }}.yml'
+    state: absent
+  loop : "{{ ignored_files |flatten(levels=1)  }}" # provide this from command line

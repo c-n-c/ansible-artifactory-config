@@ -1,7 +1,7 @@
 ---
 # tasks file for deploy_config
-- name: Deploy artifactory repo configurations from files directory using REST endpoint
-  uri:
+- name: Deploy artifactory repo prerequesites - Proxy Config
+  uri: &uri-definition
     url: "{{rest_query_url}}"
     method: PATCH
     user: "{{api_username}}"
@@ -11,4 +11,20 @@
     force_basic_auth: yes
     return_content: yes
     src: "{{ item }}"
-  with_fileglob: "{{ playbook_dir }}/{{ config_fileglob }}"
+  with_fileglob: "{{ playbook_dir }}/{{ proxy_fileglob }}"
+
+- name: Deploy artifactory repo prerequesites - PropertySet
+  uri: *uri-definition
+  with_fileglob: "{{ playbook_dir }}/{{ property_fileglob }}"
+
+- name: Deploy artifactory LOCAL REPO configurations using REST endpoint
+  uri: *uri-definition
+  with_fileglob: "{{ playbook_dir }}/{{ local_fileglob }}"
+
+- name: Deploy artifactory REMOTE REPO using REST endpoint
+  uri: *uri-definition
+  with_fileglob: "{{ playbook_dir }}/{{ remote_fileglob }}"
+
+- name: Deploy artifactory VIRTUAL REPO using REST endpoint
+  uri: *uri-definition
+  with_fileglob: "{{ playbook_dir }}/{{ virtual_fileglob }}"
