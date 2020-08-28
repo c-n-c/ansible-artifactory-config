@@ -19,7 +19,7 @@
   with_fileglob: "{{ playbook_dir }}/deploy_config/files/*.*"
 
 - name: Parse artifactory config in xml and create repo yaml
-  script: ./create_repo_yaml.py {{ playbook_dir }}
+  script: ./create_repo_yaml.py {{ playbook_dir }} {{ art_version }}
   args:
     executable: python
 

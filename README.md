@@ -3,4 +3,4 @@
 Artifactory repos can be backed up using REST APIs and then restored from it.
 
 ##### Usage:
-```$ ansible-playbook playbook.yml -e "{"ignored_files": ["<filename1>", "<filename2>"]}" ```
+```$ ansible-playbook playbook.yml -e "{"ignored_files": ["<filename1>", "<filename2>"], "art_version": 7}" ```

@@ -21,7 +21,10 @@ remove_yaml_node = ["localRepoChecksumPolicyType",
 
 make_child_to_array = ['repositoryRef', 'propertySetRef']
 
-replace_with_tags = {"proxyRef": "proxy", "defaultProxy": "platformDefault"}
+if sys.argv[2] == "7":
+    replace_with_tags = {"proxyRef": "proxy", "defaultProxy": "platformDefault"}
+else:
+    replace_with_tags = {"proxyRef": "proxy"}
 
 replace_with_child_text = {"predefinedValue": "value"}
 
